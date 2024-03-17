@@ -21,7 +21,7 @@ pipeline {
                 dir('./gist-application-deployment') {
                     script {
                         def tag = env.tag
-                        bat "docker build -t gist-application:${tag} ."
+                        powershell 'docker build -t gist-application:${tag} .'
                     }
                 }
             }
