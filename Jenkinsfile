@@ -8,9 +8,12 @@ pipeline {
         }
         stage("Build Tag"){
             steps{
-                script{
-                    bat 'pwd'
+                dir('./gist-application-deployment') {
+                    script {
+                        generateTag()
+                    }
                 }
+
             }
         }
         
