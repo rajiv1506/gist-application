@@ -20,7 +20,7 @@ pipeline {
             steps  {
                 dir('./gist-application-deployment') {
                     script {
-                        echo "$env.tag"
+                        echo "${env.tag}"
                         bat "docker build -t gist-application:${env.tag} ."
                     }
                 }
