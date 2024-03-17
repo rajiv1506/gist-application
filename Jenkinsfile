@@ -21,6 +21,6 @@ pipeline {
 }
 
 def generateTag() {
-    def commitId = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+    def commitId = bat(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
     return commitId
 }
