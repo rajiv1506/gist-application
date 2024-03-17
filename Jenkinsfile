@@ -8,10 +8,7 @@ pipeline {
         }
         stage("Build Tag"){
             steps{
-                script{
-                    def tag = generateTag()
-                    env.tag = tag
-                }
+                sh 'pwd'
             }
         }
         
