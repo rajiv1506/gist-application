@@ -11,7 +11,7 @@ pipeline {
                 dir('./gist-application-deployment') {
                     script {
                         def tag = "${generateTag()}"
-                        powershell "docker build -t gist-application:${tag} ."
+                        powershell "docker build -t gist-application:$tag ."
                     }
                 }
             }
