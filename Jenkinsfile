@@ -8,7 +8,9 @@ pipeline {
         }
         stage("Build Tag"){
             steps{
-                sh 'pwd'
+                script{
+                    sh 'pwd'
+                }
             }
         }
         
@@ -17,5 +19,5 @@ pipeline {
 
 def generateTag() {
     def commitId = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
-    return "commit-${commitId}"
+    return commitId
 }
