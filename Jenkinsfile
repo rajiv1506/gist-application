@@ -6,5 +6,16 @@ pipeline {
                 git url: 'https://github.com/rajiv1506/gist-application.git', branch: 'main'
             }
         }
+        stage("Build Tag"){
+            steps{
+                def tag = generateTag()
+            }
+        }
+        
     }
+}
+
+def generateTag() {
+    def commitId = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+    return "commit-${commitId}"
 }
