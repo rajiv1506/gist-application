@@ -8,7 +8,10 @@ pipeline {
         }
         stage("Build Tag"){
             steps{
-                def tag = generateTag()
+                script{
+                    def tag = generateTag()
+                    env.tag = tag
+                }
             }
         }
         
