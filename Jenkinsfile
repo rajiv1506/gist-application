@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('Checkout'){
             steps{
-                git 'https://github.com/rajiv1506/gist-application.git'
+                git url: 'https://github.com/rajiv1506/gist-application.git', branch: 'main'
             }
         }
     }
