@@ -10,13 +10,21 @@ pipeline {
             steps{
                 dir('./gist-application-deployment') {
                     script {
-                        echo "${generateTag()}"
+                        def tag = "${generateTag()}"
+                        env.tag = tag
                     }
                 }
-
             }
         }
-        
+        stage("Build Docker Image") {
+            steps  {
+                dir('./gist-application-deployment') {
+                    script {
+                        bat 'powershell.exe -command "docker build -t gist-application:${env.tag}"'
+                    }
+                }
+            }
+        }
     }
 }
 
