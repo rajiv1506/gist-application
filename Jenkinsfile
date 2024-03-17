@@ -10,7 +10,7 @@ pipeline {
             steps{
                 dir('./gist-application-deployment') {
                     script {
-                        bat 'powershell.exe -Command "git branch"'
+                        generateTag()
                     }
                 }
 
