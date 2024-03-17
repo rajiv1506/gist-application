@@ -9,7 +9,7 @@ pipeline {
         stage("Build Tag"){
             steps{
                 script{
-                    sh 'pwd'
+                    bat 'pwd'
                 }
             }
         }
