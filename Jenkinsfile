@@ -10,7 +10,7 @@ pipeline {
             steps{
                 dir('./gist-application-deployment') {
                     script {
-                        sh 'git branch'
+                        bat 'powershell.exe -Command "git branch"'
                     }
                 }
 
