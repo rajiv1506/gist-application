@@ -20,7 +20,7 @@ pipeline {
             steps  {
                 dir('./gist-application-deployment') {
                     script {
-                        bat 'powershell.exe -command "docker build -t gist-application:${env.tag}"'
+                        bat "docker build -t gist-application:${env.tag} ."
                     }
                 }
             }
