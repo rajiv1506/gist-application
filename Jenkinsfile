@@ -10,7 +10,7 @@ pipeline {
             steps{
                 dir('./gist-application-deployment') {
                     script {
-                        generateTag()
+                        sh 'git branch'
                     }
                 }
 
