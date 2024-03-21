@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    environment{ TAG = generateTag() }
     stages{
         stage('Checkout'){
             steps{
@@ -10,8 +11,7 @@ pipeline {
             steps{
                 dir('./gist-application-deployment') {
                     script {
-                        def tag = "${generateTag()}"
-                        powershell "docker build -t gist-application:$tag ."
+                        powershell "docker build -t gist-application:${env.Tag} ."
                     }
                 }
             }
