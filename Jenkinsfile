@@ -1,18 +1,18 @@
 pipeline {
     agent any
-    environment{ TAG = generateTag() }
     stages{
         stage('Checkout'){
             steps{
                 git url: 'https://github.com/rajiv1506/gist-application.git', branch: 'main'
             }
         }
-        stage("Build Tag and Image"){
+        stage('Test'){
             steps{
-                dir('./gist-application-deployment') {
-                    script {
-                        powershell "docker build -t gist-application:${env.Tag} ."
-                    }
+                script{
+                    def tag = generateTag()
+                    def tagversion = tagVersion()
+                    echo "${tag}"
+                    echo "${tagversion}"
                 }
             }
         }
@@ -20,6 +20,11 @@ pipeline {
 }
 
 def generateTag() {
-    def commitId = bat(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+    def commitId = sh(script: 'git rev-parse --short HEAD', returnStdout: true)
     return commitId
+}
+
+def tagVersion() {
+    def tagversion = sh(script: 'git tag', returnStdout: true)
+    return tagversion
 }
