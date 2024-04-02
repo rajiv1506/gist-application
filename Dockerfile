@@ -20,5 +20,6 @@ CMD ["python", "-m", "unittest", "test.py"]
 
 FROM dev AS prod
 
+
 CMD ["flask", "run", "--host=0.0.0.0"]
 

@@ -1,0 +1,6 @@
+projectKey=gist-application
+serverUrl=http://localhost:9000
+serverVersion=10.4.1.88267
+dashboardUrl=http://localhost:9000/dashboard?id=gist-application
+ceTaskId=a64a9cef-29d1-4320-8493-16eb1131703f
+ceTaskUrl=http://localhost:9000/api/ce/task?id=a64a9cef-29d1-4320-8493-16eb1131703f
